@@ -11,3 +11,7 @@ Intensity Transformations
 1. Negative Image
 2. Log transformation
 3. Gamma transform
+4. Contrast stretching
+5. Intensity level slicing
+6. Bit plane slicing
+
