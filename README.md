@@ -1,17 +1,19 @@
 # IPCV-Labs
-Implementing Image Processing and Computer Vision Algorithms from Scratch
+Implemented core **image processing algorithms** from scratch using **NumPy** for low-level numerical operations without relying on high-level library functions.
 
-Basic Algorithms (Grayscale image):
+---
 
-1. Image as a 2d matrix
-2. Access the pixels and operations
-3. Saturation and noise
+## Basic Algorithms (Grayscale Image)
+- Image as a 2D matrix
+- Pixel access and operations
+- Saturation and noise
 
-Intensity Transformations
-1. Negative Image
-2. Log transformation
-3. Gamma transform
-4. Contrast stretching
-5. Intensity level slicing
-6. Bit plane slicing
+---
 
+## Intensity Transformations
+- Negative Image
+- Log Transformation
+- Gamma Transformation
+- Contrast Stretching
+- Intensity Level Slicing
+- Bit Plane Slicing
