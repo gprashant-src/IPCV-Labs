@@ -11,7 +11,7 @@ hist = np.bincount(img.flatten(), minlength=256)
 
 """For normalized histogram"""
 hist_1 = hist / (h * w)
-T_r = np.round(np.cumsum(hist_1) * 255).astype(int)
+T_r = np.round(np.cumsum(hist_1) * 255).astype(np.uint8)
 
 # H = defaultdict(int)
 # for r, t_r in enumerate(T_r):
@@ -20,6 +20,15 @@ T_r = np.round(np.cumsum(hist_1) * 255).astype(int)
 
 res = np.zeros(256, dtype=np.uint64)
 np.add.at(res, T_r, hist)
+
+
+"""Original and Final image display"""
+
+cv2.imshow("Original", img)
+cv2.imshow("After histogram eq.", T_r[img])
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
 
 fig, axes = plt.subplots(1, 2, figsize=(12, 4))
 
