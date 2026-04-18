@@ -17,3 +17,9 @@ Implemented core **image processing algorithms** from scratch using **NumPy** fo
 - Contrast Stretching
 - Intensity Level Slicing
 - Bit Plane Slicing
+
+---
+
+## Histogram based algorithms
+- Histogram processing
+- Histogram equalization
