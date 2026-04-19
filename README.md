@@ -23,3 +23,4 @@ Implemented core **image processing algorithms** from scratch using **NumPy** fo
 ## Histogram based algorithms
 - Histogram processing
 - Histogram equalization
+- Histogram Matching
