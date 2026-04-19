@@ -10,12 +10,12 @@ def hist_matching(img1, img2):
 
     r1, r2 = hist_1 / img1.size, hist_2 / img2.size
 
-    cdf1 = np.round(255 * np.cumsum(r1))
-    cdf2 = np.round(255 * np.cumsum(r2))
+    cdf1 = np.cumsum(r1)
+    cdf2 = np.cumsum(r2)
 
 
     # Binary search to find the index i of cdf2 that is closest of any e in cdf1
-    H = np.searchsorted(cdf1, cdf2, side="left")    
+    H = np.searchsorted(cdf2, cdf1, side="left")    
     H = np.clip(H, 0, 255).astype(np.uint8)
 
     final_img = H[img1]
