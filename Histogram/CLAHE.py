@@ -20,6 +20,34 @@ def divide_image(img:np.ndarray, m:int=8, n:int=8):
 
     return tiles
 
+def hist_clip(hist:np.ndarray, th:int, tw:int, clip_factor:float=3.0):
+    clip_limit = int(clip_factor * (th * tw) / 256)
+    # print(clip_limit)
+
+    excess = np.zeros(256)
+    for i in range(256):
+        if hist[i] > clip_limit:
+            excess[i] = hist[i] - clip_limit
+            hist[i] = clip_limit
+    # l = 1
+    while excess.sum() != 0:
+        # print(l)
+        dis, rem = np.divmod(int(excess.sum()), 256)
+        
+        hist += dis
+        hist[:rem] += 1
+
+        excess = np.zeros(256)
+        for i in range(256):
+            if hist[i] > clip_limit:
+                excess[i] = hist[i] - clip_limit
+                hist[i] = clip_limit
+        # l += 1
+
+    return hist
+
+        
+
 
 # def hist_equalize(img):
 #     hist = np.bincount(img.flatten(), minlength=256)
@@ -39,9 +67,16 @@ img = cv2.imread("data/test1.jpg", cv2.IMREAD_GRAYSCALE)
 
 arr = divide_image(img)
 
-cv2.imshow(f"Image at {0}{0}", arr[0][0])
-print(arr[0][0].shape)
+test = arr[0][0]
+th, tw = test.shape
+hist = np.bincount(test.flatten(), minlength=256)
 
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+print(hist)
+print(hist_clip(hist, th, tw))
+
+# A = 0
+# for i in range(8):
+#     for j in range(8):
+#         h, w = arr[i][j].shape
+#         A += h * w
 
