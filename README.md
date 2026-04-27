@@ -30,3 +30,4 @@ Implemented core **image processing algorithms** from scratch using **NumPy** fo
 
 ## Spatial Filtering
 - Lowpass filters
+  - Box filter
