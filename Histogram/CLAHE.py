@@ -40,7 +40,6 @@ def hist_clip(hist:np.ndarray, th:int, tw:int, clip_factor:float=3.0):
             hist[i] = clip_limit
 
     while excess.sum() != 0:
-        # print(l)
         dis, rem = np.divmod(int(excess.sum()), 256)
         
         hist += dis
