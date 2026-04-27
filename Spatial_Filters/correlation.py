@@ -31,4 +31,4 @@ kernel = np.array([
 ])
 # if convolution
 # kernel = np.flip(kernel)
-print(filter(img, kernel))
+# print(filter(img, kernel))
