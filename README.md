@@ -25,3 +25,8 @@ Implemented core **image processing algorithms** from scratch using **NumPy** fo
 - Histogram equalization
 - Histogram Matching
 - CLAHE (Contrast Limited Adaptive Histogram Equalization)
+
+---
+
+## Spatial Filtering
+- Lowpass filters
