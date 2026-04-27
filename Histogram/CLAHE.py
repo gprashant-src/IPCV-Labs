@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+from typing import List
 
 def divide_image(img:np.ndarray, m:int=8, n:int=8):
     h, w = img.shape[:2]
@@ -46,7 +47,34 @@ def hist_clip(hist:np.ndarray, th:int, tw:int, clip_factor:float=3.0):
 
     return hist
 
-        
+def hist_equalize(tile:np.ndarray, hist:np.ndarray):
+    hist_1 = hist / (tile.size)
+    T_r = np.round(np.cumsum(hist_1) * 255).astype(np.uint8)
+    return T_r, T_r[tile]
+
+def pipeline1(tile:np.ndarray):
+    test = tile
+    th, tw = test.shape
+
+    hist = np.bincount(test.flatten(), minlength=256)
+    x1 = hist_clip(hist, th, tw)
+
+    _, final_tile = hist_equalize(test, x1)
+    return final_tile
+
+def stitch_image(tiles:List[np.ndarray]):
+    process = []
+    m, n = len(tiles), len(tiles[0])
+    for i in range(m):
+        row = []
+        for j in range(n):
+            row.append(pipeline1(tiles[i][j]))
+
+        process.append(row)
+    
+    return np.vstack([np.hstack(row) for row in process])
+
+    
 
 
 # def hist_equalize(img):
@@ -66,14 +94,12 @@ def hist_clip(hist:np.ndarray, th:int, tw:int, clip_factor:float=3.0):
 img = cv2.imread("data/test1.jpg", cv2.IMREAD_GRAYSCALE)
 
 arr = divide_image(img)
+result_img = stitch_image(arr)
 
-test = arr[0][0]
-th, tw = test.shape
-hist = np.bincount(test.flatten(), minlength=256)
-
-print(hist)
-print(hist_clip(hist, th, tw))
-
+cv2.imshow("Original Image", img)
+cv2.imshow("Transformed", result_img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 # A = 0
 # for i in range(8):
 #     for j in range(8):
