@@ -8,7 +8,7 @@ def filter(img:np.ndarray, kernel:np.ndarray):
 
     ph, pw = kh // 2, kw // 2
 
-    padded = np.pad(img, ((ph, ph), (pw, pw)), mode="constant")
+    padded = np.pad(img, ((ph, ph), (pw, pw)), mode="reflect")
     output = np.zeros_like(img, dtype=np.float64)
 
     for i in range(h):
