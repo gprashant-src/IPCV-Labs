@@ -32,3 +32,4 @@ Implemented core **image processing algorithms** from scratch using **NumPy** fo
 - Lowpass filters
   - Box filter
   - Gaussian Filter(Symmetrical)
+  - Median Filter
