@@ -33,3 +33,6 @@ Implemented core **image processing algorithms** from scratch using **NumPy** fo
   - Box filter
   - Gaussian Filter(Symmetrical)
   - Median Filter
+- Highpass filters
+  - Prewitt 
+  - Sobel
