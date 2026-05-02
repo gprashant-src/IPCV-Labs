@@ -36,3 +36,5 @@ Implemented core **image processing algorithms** from scratch using **NumPy** fo
 - Highpass filters
   - Prewitt 
   - Sobel
+  - Laplacian
+  - Sharpening (Unsharp masking/highboost filtering)
