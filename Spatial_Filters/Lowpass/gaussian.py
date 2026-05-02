@@ -4,12 +4,6 @@ import sys
 sys.path.append(r"g:\\projects\\IPCV-Labs")
 from Spatial_Filters.correlation import filter
 
-# def g(x:int, y:int, stdev:float):
-#     K = 1 / (2 * np.pi * stdev ** 2)
-#     T = (x ** 2 + y ** 2) / (2 * stdev ** 2)
-#     return K * np.exp(-T)
-
-
 def gaussian(ks:int, stdev:float):
     assert ks % 2 == 1, "Kernel size must be odd"
 
@@ -28,12 +22,17 @@ def gaussian(ks:int, stdev:float):
     return kernel
 
 
-img = cv2.imread("data/test1.jpg", cv2.IMREAD_GRAYSCALE)
-kernel = gaussian(ks=5, stdev=2)
+# img = cv2.imread("data/test1.jpg", cv2.IMREAD_GRAYSCALE)
+# kernel = gaussian(ks=5, stdev=2)
 
-result_img = filter(img, kernel)
+# result_img = filter(img, kernel)
 
-cv2.imshow("Original Image", img)
-cv2.imshow("Gaussian Blurred", result_img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+# cv2.imshow("Original Image", img)
+# cv2.imshow("Gaussian Blurred", result_img)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+# def g(x:int, y:int, stdev:float):
+#     K = 1 / (2 * np.pi * stdev ** 2)
+#     T = (x ** 2 + y ** 2) / (2 * stdev ** 2)
+#     return K * np.exp(-T)
